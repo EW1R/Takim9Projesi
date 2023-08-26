@@ -12,7 +12,7 @@ public class SpellIndicator : MonoBehaviour
     void Update()
     {
         // Büyü yeteneği kullanılacağında (örneğin, fare sol tıklamada)
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(1))
         {
             // İndikatörü oluştur
             Vector3 mousePosition = Input.mousePosition;
