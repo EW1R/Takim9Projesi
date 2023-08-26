@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
 
     private float rotationX = 0;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     void Update()
     {
         // Object Movement
