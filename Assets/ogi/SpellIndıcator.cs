@@ -23,7 +23,7 @@ public class SpellIndicator : MonoBehaviour
         }
 
         // Büyü yeteneği kullanımını bitirdiğinizde
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1))
         {
             // İndikatörü yok et
             if (obje != null)
