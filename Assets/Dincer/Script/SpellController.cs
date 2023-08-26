@@ -83,7 +83,7 @@ public class SpellController : MonoBehaviour
         }
 
         list.Add(Instantiate(currentRing.leftClick.projectile, handPos.position, Quaternion.identity));
-
+        list[^1].GetComponent<Projectiles>().instigator = currentRing;
         return list[^1];
 
 
