@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944718b30d6119e4687b2220af3ad7db, type: 3}
   m_Name: Fire Ring
   m_EditorClassIdentifier: 
-  leftClick: {fileID: 0}
+  leftClick: {fileID: 11400000, guid: d1d4b171edfc7dc4db9d565546bcff60, type: 2}
   ringImage: {fileID: 0}
-  ringName: 
+  ringName: FireRing
+  isActive: 1

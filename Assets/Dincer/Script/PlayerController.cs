@@ -6,7 +6,15 @@ public class PlayerController : MonoBehaviour
     public float sensitivity = 2.0f;
 
     private float rotationX = 0;
+    private float rotationY = 0;
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+  
     void Update()
     {
         // Object Movement
