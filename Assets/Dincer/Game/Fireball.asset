@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b077e005b6c894f97ba9c04dd4ba03, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
-  spellName: 
-  projectileSpeed: 0
+  spellName: Fireball
+  projectileSpeed: 5
   vfx: {fileID: 0}
-  damage: 0
+  damage: 10
   animation: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 2462168058496595, guid: 6e4bc03a7cfeb8846913d40ef5a7c5ca, type: 3}
+  timeBetweenAttacks: 1
+  projectileLifeTime: 2

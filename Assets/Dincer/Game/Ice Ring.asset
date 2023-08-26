@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftClick: {fileID: 0}
   ringImage: {fileID: 0}
-  ringName: 
-  isActive: 0
+  ringName: IceRing
+  isActive: 1
