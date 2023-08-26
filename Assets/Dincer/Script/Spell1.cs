@@ -14,4 +14,5 @@ public class Spell1 : ScriptableObject
     public AnimatorOverrideController animation;
     public GameObject projectile;
     public float timeBetweenAttacks;
+    public float projectileLifeTime;
 }
