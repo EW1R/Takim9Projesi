@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944718b30d6119e4687b2220af3ad7db, type: 3}
   m_Name: Bolt Ring
   m_EditorClassIdentifier: 
-  leftClick: {fileID: 0}
+  leftClick: {fileID: 11400000, guid: 76955c99cc801294f8cd1b7afa7c51ad, type: 2}
   ringImage: {fileID: 0}
   ringName: BoltRing
   isActive: 1
+  projectileList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

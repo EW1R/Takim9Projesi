@@ -10,4 +10,5 @@ public class Ring : ScriptableObject
     public Sprite ringImage;
     public string ringName;
     public bool isActive;
+    public List<GameObject> projectileList;
 }

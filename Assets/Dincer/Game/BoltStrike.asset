@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: BoltStrike
   m_EditorClassIdentifier: 
   spellName: Bolt
-  projectileSpeed: 15
+  projectileSpeed: 20
   vfx: {fileID: 0}
   damage: 2
   animation: {fileID: 0}
-  projectile: {fileID: 0}
+  projectile: {fileID: 997588459897481924, guid: 2b172a5131b0592429b785e9961e1c77,
+    type: 3}
   timeBetweenAttacks: 0.5
+  projectileLifeTime: 5

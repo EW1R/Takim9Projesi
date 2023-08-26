@@ -12,7 +12,7 @@ public class SpellController : MonoBehaviour
     List<GameObject> projectilePool = new List<GameObject>();
 
     private float lastTimeSinceAttack = Mathf.Infinity;
-    private Animator anim;
+    public Animator anim;
 
     private float time;
     public bool isAttacking = false;
@@ -20,7 +20,6 @@ public class SpellController : MonoBehaviour
     private void Start()
     {
         currentRing = GetComponent<Rings>().GetCurrentRing();
-        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -52,11 +51,11 @@ public class SpellController : MonoBehaviour
     {
         if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
         {
-            GameObject projectile = ProjectilePool();
+            GameObject projectile = ProjectilePool(currentRing.projectileList);
             lastTimeSinceAttack = 0;
 
             projectile.transform.position = handPos.position;
-            projectile.transform.localRotation = Quaternion.Euler(0,0,0);
+            projectile.transform.localRotation = Quaternion.Euler(90,0,0);
             projectile.SetActive(true);
 
             projectile.GetComponent<Rigidbody>().velocity =Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
@@ -68,20 +67,20 @@ public class SpellController : MonoBehaviour
 
     }
 
-    private GameObject ProjectilePool()
+    private GameObject ProjectilePool(List<GameObject> list)
     {
 
-        for (int i = 0; i < projectilePool.Count; i++)
+        for (int i = 0; i < list.Count; i++)
         {
-            if (projectilePool[i] != null && !projectilePool[i].activeSelf )
+            if (list[i] != null && !list[i].activeSelf )
             {
-                return projectilePool[i];
+                return list[i];
             }
         }
 
-        projectilePool.Add(Instantiate(currentRing.leftClick.projectile, handPos.position, Quaternion.identity));
+        list.Add(Instantiate(currentRing.leftClick.projectile, handPos.position, Quaternion.identity));
 
-        return projectilePool[^1];
+        return list[^1];
 
 
        
