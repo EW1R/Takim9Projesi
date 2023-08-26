@@ -1,37 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class bloktasi : MonoBehaviour
 {
     public GameObject blockPrefab;
-    private GameObject previewBlock;
+    public GameObject previewBlock;
     private bool isDragging = false;
+    private Vector3 hitPoint;
+    public Transform referenceObject;
+    private RaycastHit hit;
+    public float smoothSpeed = 5.0f; // Hareketin yumuþaklýðýný kontrol eden deðer
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1)) // Sað týklandýðýnda
         {
-            isDragging = true;
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
-            previewBlock = Instantiate(blockPrefab, mousePosition, Quaternion.identity);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
+            {
+                hitPoint = hit.point;
+                isDragging = true;
+                previewBlock = Instantiate(blockPrefab, hitPoint, Quaternion.identity);
+
+            }
         }
 
         if (isDragging)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
-            previewBlock.transform.position = mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
+            {
+                hitPoint = hit.point;
+
+                // Yumuþakça hareket ettirme iþlemi (Lerp)
+                Vector3 targetPosition = hitPoint;
+                Vector3 smoothedPosition = Vector3.Lerp(previewBlock.transform.position, targetPosition, smoothSpeed * Time.deltaTime);
+                previewBlock.transform.position = smoothedPosition;
+            }
         }
 
-        if (Input.GetMouseButtonUp(1)) // Sað týklamayý býraktýðýnýzda
+        if (Input.GetMouseButtonUp(1))
         {
             isDragging = false;
             Destroy(previewBlock);
-            Vector3 finalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            finalPosition.z = 0f;
-            Instantiate(blockPrefab, finalPosition, Quaternion.identity);
+
+            Instantiate(blockPrefab, hitPoint, Quaternion.identity);
         }
     }
 }
