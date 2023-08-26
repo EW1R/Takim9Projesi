@@ -8,32 +8,42 @@ public class bloktasi : MonoBehaviour
     public GameObject blockPrefab;
     public GameObject previewBlock;
     private bool isDragging = false;
+    private Vector3 hitPoint;
+    public Transform referenceObject;
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1)) // Sað týklandýðýnda
         {
-            isDragging = true;
-           Ray ray = 
-            mousePosition.z = 0f;
-            previewBlock = Instantiate(blockPrefab, mousePosition, Quaternion.identity);
-        }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
 
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
+            {
+                hitPoint = hit.point;
+                isDragging = true;
+                previewBlock = Instantiate(blockPrefab, hitPoint, Quaternion.identity);
+
+            }
+        }
+        
         if (isDragging)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
-            previewBlock.transform.position = mousePosition;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
+            {
+                hitPoint = hit.point;
+                previewBlock.transform.position = hitPoint;
+            }
         }
 
-        if (Input.GetMouseButtonUp(1)) // Sað týklamayý býraktýðýnýzda
+        if (Input.GetMouseButtonUp(1))
         {
             isDragging = false;
-
             Destroy(previewBlock);
-            Vector3 finalPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            finalPosition.z = 0f;
-            Instantiate(blockPrefab, finalPosition, Quaternion.identity);
+
+            Instantiate(blockPrefab, hitPoint, Quaternion.identity);
         }
     }
 }
