@@ -12,10 +12,16 @@ public class SpellController : MonoBehaviour
     List<GameObject> projectilePool = new List<GameObject>();
 
     private float lastTimeSinceAttack = Mathf.Infinity;
-    public Animator anim;
+    [SerializeField]
+    private Animator anim;
 
     private float time;
     public bool isAttacking = false;
+
+
+
+
+
 
     private void Start()
     {
