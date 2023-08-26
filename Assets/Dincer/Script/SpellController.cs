@@ -15,7 +15,6 @@ public class SpellController : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    private float time;
     public bool isAttacking = false;
 
 
@@ -44,7 +43,6 @@ public class SpellController : MonoBehaviour
             
 
 
-        time = currentRing.leftClick.timeBetweenAttacks;
         CheckTimers();
     }
 
@@ -66,7 +64,7 @@ public class SpellController : MonoBehaviour
 
             projectile.GetComponent<Rigidbody>().velocity =Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
 
-            anim.SetTrigger("isAttacking");
+            anim.SetTrigger("isAttacking");//anim
 
         }
 

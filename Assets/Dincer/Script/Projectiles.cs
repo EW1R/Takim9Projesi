@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectiles : MonoBehaviour
 {
     public Spell1 spell;
-
+    //public float projectileLifeTime=6f;
 
     float currentTime = 0;
 
