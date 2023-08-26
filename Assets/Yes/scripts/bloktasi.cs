@@ -10,13 +10,14 @@ public class bloktasi : MonoBehaviour
     private bool isDragging = false;
     private Vector3 hitPoint;
     public Transform referenceObject;
+    private RaycastHit hit;
+    public float smoothSpeed = 5.0f; // Hareketin yumuþaklýðýný kontrol eden deðer
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1)) // Sað týklandýðýnda
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
             {
@@ -26,15 +27,18 @@ public class bloktasi : MonoBehaviour
 
             }
         }
-        
+
         if (isDragging)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
             {
                 hitPoint = hit.point;
-                previewBlock.transform.position = hitPoint;
+
+                // Yumuþakça hareket ettirme iþlemi (Lerp)
+                Vector3 targetPosition = hitPoint;
+                Vector3 smoothedPosition = Vector3.Lerp(previewBlock.transform.position, targetPosition, smoothSpeed * Time.deltaTime);
+                previewBlock.transform.position = smoothedPosition;
             }
         }
 

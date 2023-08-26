@@ -156,6 +156,8 @@ MonoBehaviour:
     type: 3}
   previewBlock: {fileID: 4240526467316968986, guid: 0a768900d7d2b814886a9e3c1e5c2f4d,
     type: 3}
+  referenceObject: {fileID: 949098010}
+  smoothSpeed: 5
 --- !u!4 &752410602
 Transform:
   m_ObjectHideFlags: 0
