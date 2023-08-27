@@ -9,5 +9,5 @@ public class MeteorSpecial : Spell2
     {
         base.Activate();
         Debug.Log("Meteor");
-    }
+    }   
 }
