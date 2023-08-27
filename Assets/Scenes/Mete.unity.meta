@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: e7a84f14bef5b834eb062b5269bd10ef
+=======
+<<<<<<<< HEAD:Assets/Mete/Scene/metex.unity.meta
+guid: e7a84f14bef5b834eb062b5269bd10ef
+========
+guid: 39dce632732b66244bf932b591985e1c
+>>>>>>>> 609e834554b3e1717adb20afb781db59fe30b917:Assets/Scenes/Dincer.unity.meta
+>>>>>>> Stashed changes
 DefaultImporter:
   externalObjects: {}
   userData: 
