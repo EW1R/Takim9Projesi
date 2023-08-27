@@ -15,7 +15,6 @@ public class SpellController : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
-    public bool isAttacking = false;
 
 
 
@@ -40,8 +39,20 @@ public class SpellController : MonoBehaviour
         {
             UseSpell1();
         }
-            
 
+        if (Input.GetMouseButton(1))
+        {
+            currentRing.rightClick.SetIndicator();
+            currentRing.rightClick.ControlIndicator();
+            
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            currentRing.rightClick.EndIndicate();
+            currentRing.rightClick.Activate();
+        }
+
+        
 
         CheckTimers();
     }
@@ -85,9 +96,6 @@ public class SpellController : MonoBehaviour
         list.Add(Instantiate(currentRing.leftClick.projectile, handPos.position, Quaternion.identity));
         list[^1].GetComponent<Projectiles>().instigator = currentRing;
         return list[^1];
-
-
-       
 
     }
 

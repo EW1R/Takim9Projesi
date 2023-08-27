@@ -48,6 +48,12 @@ public class Projectiles : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             other.GetComponent<Health>().TakeDamage(instigator.leftClick.damage);
+            isDone = true;
+        }
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Health>().TakeDamage(instigator.leftClick.damage);
+            isDone = true;
         }
     }
 
