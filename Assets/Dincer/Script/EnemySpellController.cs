@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemySpellController : MonoBehaviour
 {
 
+    public int attackcountforspecial = 3;
     public Transform handPos;
     public Ring currentRing;
 
@@ -70,8 +71,16 @@ public class EnemySpellController : MonoBehaviour
             }
             else
             {
-                isAttacking = true;
-                AttackPlayer();
+                if (attackcountforspecial > 0)
+                {
+                    isAttacking = true;
+                    AttackPlayer();
+                    
+                }
+                else UseSpecial();
+                
+                
+
             }
         }
         else
@@ -82,6 +91,7 @@ public class EnemySpellController : MonoBehaviour
     private void UseSpecial()
     {
         currentRing.rightClick.Activate();
+        attackcountforspecial = 3;
     }
     private float DistanceToPlayer()
     {
@@ -97,6 +107,7 @@ public class EnemySpellController : MonoBehaviour
     {
         navMesh.SetDestination(transform.position);
         UseSpell1();
+        
     }
 
 
@@ -120,6 +131,7 @@ public class EnemySpellController : MonoBehaviour
 
             projectile.GetComponent<Rigidbody>().velocity =transform.forward * currentRing.leftClick.projectileSpeed;
 
+            attackcountforspecial--;
             //anim.SetTrigger("isAttacking");//anim
 
         }
