@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
+    [SerializeField] private Image totalHealthBar;
+    [SerializeField] private Image currentHealthBar;
     public float healthAmount;
 
     public GameObject bloodPrefab;
+
 
     public bool isPlayer = false;
     private bool isDead = false;
@@ -17,6 +20,11 @@ public class Health : MonoBehaviour
     void Start()
     {
         currentHealth = healthAmount;
+    }
+    void Update()
+    {
+        currentHealthBar.fillAmount = currentHealth / healthAmount;
+        totalHealthBar.fillAmount = currentHealth / healthAmount;
     }
 
 
