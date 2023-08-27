@@ -6,7 +6,7 @@ public class lambrotate : MonoBehaviour
 {
 
     public float maxRotationAmount = 90.0f; // Maksimum dönüþ açýsý
-    public float shakeSpeed = 1.3f; // Sallanma hýzý
+    public float shakeSpeed = 0.8f; // Sallanma hýzý
 
     private Vector3 initialRotation;
     private float rotationTimer = 0.0f;
