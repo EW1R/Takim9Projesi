@@ -17,7 +17,7 @@ public class Quest
     public int nextQuest;           //Sýradaki questin idsi
 
 
-    public Vector2 questDirection;  //Questin konumu
+    public Vector3 questDirection;  //Questin konumu
 
 
     public string questObjective;           //Quest beklentisi
