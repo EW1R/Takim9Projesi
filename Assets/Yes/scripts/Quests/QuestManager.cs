@@ -24,6 +24,8 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
+
     public bool RequestOpenQuest(int questID)//mevcut alýnabilir quest çekme
     {
         for (int i = 0; i < questList.Count; i++)
@@ -48,7 +50,21 @@ public class QuestManager : MonoBehaviour
         return false;
     }
 
-    public void IncrementQuestStep(string questObjective, int questStepsCount)
+    public bool RequestCompleteQuest(int questID) //Tamamlanmýþ quest çekme
+    {
+        for (int i = 0; i < questList.Count; i++)
+        {
+            if (questList[i].id == questID && questList[i].progress == Quest.QuestProgress.Complete)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    public void IncrementQuestStep(string questObjective, int questStepsCount) //Quest progress sistemi
     {
         for(int i = 0; i < currentQuestList.Count; i++) 
         {
@@ -57,10 +73,25 @@ public class QuestManager : MonoBehaviour
                 currentQuestList[i].questObjectiveCount += questStepsCount;
             }
 
-            if (currentQuestList[i].questObjective >= questObjective && currentQuestList[i].questObjectiveRequirements == Quest.QuestProgress.Accepted)
+            if (currentQuestList[i].questObjectiveCount >= currentQuestList[i].questObjectiveRequirements && currentQuestList[i].progress == Quest.QuestProgress.Accepted)
             {
                 currentQuestList[i].progress = Quest.QuestProgress.Complete;
             }
         }
     }
+
+
+    public void AcceptQuest(int questID)//Questi kabul etme
+    {
+        for(int i = 0; i<= questList.Count; i++) 
+        {
+            if (questList[i].id == questID && questList[i].progress == Quest.QuestProgress.Open)
+            {
+                currentQuestList.Add(questList[i]);
+                questList[i].progress = Quest.QuestProgress.Accepted;
+            }
+        }
+
+    }
+
 }
