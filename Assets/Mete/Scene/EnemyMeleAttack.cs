@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyMeleeAttack : MonoBehaviour
 {
+    private Rigidbody rb;
     public float attackRange = 2f;
     public float chaseRange = 10f; // New variable for chase rangee
     public float attackCooldown = 0.5f;
@@ -16,6 +17,7 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyAnimator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -30,7 +32,8 @@ public class EnemyMeleeAttack : MonoBehaviour
         {
             isChasing = true;
             Vector3 moveDirection = (player.position - transform.position).normalized;
-            transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+            rb.velocity = moveDirection * moveSpeed; // Use Rigidbody velocity for movement
+
 
             Vector3 lookDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
             transform.rotation = Quaternion.LookRotation(lookDirection);
@@ -46,8 +49,8 @@ public class EnemyMeleeAttack : MonoBehaviour
 
     private void Attack()
     {
-        enemyAnimator.SetTrigger("IsAttack");
         canAttack = false;
+        enemyAnimator.SetTrigger("IsAttack");
         Invoke("ResetAttackCooldown", attackCooldown);
     }
 
@@ -60,8 +63,8 @@ public class EnemyMeleeAttack : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        
-        Gizmos.color = Color.blue; 
+
+        Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
 }
