@@ -24,6 +24,22 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void QuestRequest(QuestObject NPCQuestObject)
+    {
+        if(NPCQuestObject.avaliableQuestIds.Count > 0) 
+        { 
+            for(int i = 0; i<questList.Count; i++) 
+            {
+                for(int j =0; j < NPCQuestObject.avaliableQuestIds.Count; j++) 
+                {
+                    if (questList[i].id == NPCQuestObject.avaliableQuestIds[j] && questList[i].progress == Quest.QuestProgress.Open)
+                    {
+                        Debug.Log("Quest ID: " + NPCQuestObject.avaliableQuestIds[j]+" " + questList[i].progress);
+                    }
+                }
+            }
+        }
+    }
 
 
     public bool RequestOpenQuest(int questID)//mevcut alýnabilir quest çekme
