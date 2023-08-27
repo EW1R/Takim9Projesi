@@ -42,9 +42,10 @@ public class SpellController : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            
+            print("Mouse");
             currentRing.rightClick.ControlIndicator();
-            
+            print("MouseGecti");
+
         }
         if (Input.GetMouseButtonUp(1))
         {
@@ -75,7 +76,7 @@ public class SpellController : MonoBehaviour
 
             projectile.GetComponent<Rigidbody>().velocity =Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
 
-            anim.SetTrigger("isAttacking");//anim
+//            anim.SetTrigger("isAttacking");//anim
 
         }
 

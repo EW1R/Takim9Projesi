@@ -10,32 +10,39 @@ public class Spell2 : ScriptableObject
     public float damage;
     public float cooldown;
     public float projectileLifeTime;
-
+    public float yOffset;
 
   
 
     public GameObject indicatorPrefab, tempObject; // Gösterge için kullanýlacak prefab
     private GameObject temp;
-    private bool isSpawned=false;
+    public bool isSpawned= true;
     
-    
+   
     public void ControlIndicator()
     {
-        Debug.Log(isSpawned);
+        
 
-        if (!isSpawned)
+        if (isSpawned)
         {
-            Debug.Log("isSpawnedDDDDD"+isSpawned);
+            Debug.Log("ICERDE");
             Vector3 worldPosition = MousePosWorld();
             Create(worldPosition);
 
         }
+        else
         // Büyü yeteneði kullanýlacaðýnda (örneðin, fare sol týklamada)
-        if (isSpawned)
         {
-            temp.transform.position = MousePosWorld();
-            Debug.Log("isSpawned"+isSpawned);
+            Debug.Log(isSpawned + "CIEDREDES");
+            Vector3 worldPos = MousePosWorld();
+            worldPos.y = temp.GetComponent<FindGround>().GetHitPoint().y;
+            temp.transform.position = worldPos;
+            Quaternion rotation = Quaternion.FromToRotation(Vector3.up, temp.GetComponent<FindGround>().GetHitNormal());
+            temp.transform.rotation = rotation;
+            temp.transform.position += temp.GetComponent<FindGround>().GetHitNormal() * yOffset;
         }
+
+        Debug.Log(isSpawned + "AFTER");
 
        
 
@@ -55,7 +62,7 @@ public class Spell2 : ScriptableObject
     private GameObject Create(Vector3 worldPos)
     {
         temp = Instantiate(indicatorPrefab, worldPos, Quaternion.identity);
-        isSpawned = true;
+        isSpawned = false;
         return temp;
     }
 
@@ -63,6 +70,7 @@ public class Spell2 : ScriptableObject
     {
   
         Instantiate(tempObject, temp.transform.position, Quaternion.identity);
+        isSpawned = true;
     }
 
     private static Vector3 MousePosWorld()
