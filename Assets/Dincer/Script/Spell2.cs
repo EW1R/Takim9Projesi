@@ -16,29 +16,25 @@ public class Spell2 : ScriptableObject
 
     public GameObject indicatorPrefab, tempObject; // Gösterge için kullanýlacak prefab
     private GameObject temp;
-    private bool isSpawned;
+    private bool isSpawned=false;
     
-    public void SetIndicator()
-    {
-        isSpawned = false;
-    }
+    
     public void ControlIndicator()
     {
         Debug.Log(isSpawned);
 
         if (!isSpawned)
         {
+            Debug.Log("isSpawnedDDDDD"+isSpawned);
             Vector3 worldPosition = MousePosWorld();
             Create(worldPosition);
-            isSpawned = !isSpawned;
-            Debug.Log("isSpawnedDDDDD");
 
         }
         // Büyü yeteneði kullanýlacaðýnda (örneðin, fare sol týklamada)
         if (isSpawned)
         {
             temp.transform.position = MousePosWorld();
-            Debug.Log("isSpawned");
+            Debug.Log("isSpawned"+isSpawned);
         }
 
        
@@ -59,6 +55,7 @@ public class Spell2 : ScriptableObject
     private GameObject Create(Vector3 worldPos)
     {
         temp = Instantiate(indicatorPrefab, worldPos, Quaternion.identity);
+        isSpawned = true;
         return temp;
     }
 

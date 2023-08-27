@@ -42,7 +42,7 @@ public class SpellController : MonoBehaviour
 
         if (Input.GetMouseButton(1))
         {
-            currentRing.rightClick.SetIndicator();
+            
             currentRing.rightClick.ControlIndicator();
             
         }
