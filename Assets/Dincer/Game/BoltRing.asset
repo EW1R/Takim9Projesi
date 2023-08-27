@@ -9,26 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944718b30d6119e4687b2220af3ad7db, type: 3}
-  m_Name: Bolt Ring
+  m_Script: {fileID: 11500000, guid: d1a6bc2f290527d42a2a74f71718c3a0, type: 3}
+  m_Name: BoltRing
   m_EditorClassIdentifier: 
   leftClick: {fileID: 11400000, guid: 76955c99cc801294f8cd1b7afa7c51ad, type: 2}
   rightClick: {fileID: 11400000, guid: fe87257a79ac99d40b6d5df43e0a03ad, type: 2}
   ringImage: {fileID: 0}
-  ringName: BoltRing
+  ringName: 
   isActive: 1
   projectileList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
