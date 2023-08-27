@@ -42,7 +42,7 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
-        for(int i =0; i < NPCQuestObject.recievableQuestIds.Count;j++)
+        for(int i =0; i < NPCQuestObject.recievableQuestIds.Count;i++)
         {
 
         }
