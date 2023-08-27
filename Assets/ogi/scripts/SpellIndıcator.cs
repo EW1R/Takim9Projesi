@@ -12,6 +12,7 @@ public class SpellIndicator : MonoBehaviour
     private GameObject temp;
     private bool isSpawned = false;
     public float yOffset = 0.2f;
+    public GameObject particleCircle;
     
     private void Start()
     {
@@ -42,7 +43,7 @@ public class SpellIndicator : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(1))
         {
-            
+            Quaternion rotation = Quaternion.FromToRotation(Vector3.up, temp.GetComponent<FindGround>().GetHitNormal());
 
             Instantiate(tempObject, obje.transform.position, Quaternion.identity);
         }
