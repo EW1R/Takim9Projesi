@@ -17,10 +17,12 @@ public class Quest
     public int nextQuest;           //Sýradaki questin idsi
 
 
-    public Vector2 questDirection;  //Questin konumu
+    public Vector3 questDirection;  //Questin konumu
 
 
     public string questObjective;           //Quest beklentisi
     public int questObjectiveCount;         //quest için tamamlanan adým sayýsý
     public int questObjectiveRequirements; //Questin tamamlanmasý için gereken adým sayýsý
+
+    public string questItem; //questin tamamlanmasý ile alýnacak item
 }

@@ -87,6 +87,34 @@ public class SpellIndicator : MonoBehaviour
         temp = Instantiate(indicatorPrefab, worldPos, Quaternion.identity);
         return temp;
     }
+    private bool isFalling = true; // Alev topu düşüyor mu?
+
+    void Updat()
+    {
+        if (isFalling && transform.position.y <= 0f)
+        {
+            // Alev topu yere düştü, burada kaybolabilir veya başka bir işlem yapabilirsiniz.
+            Destroy(gameObject); // Alev topunu yok et
+        }
+    }
+
+    // Alev topu bir şeye çarptığında çalışacak kod
+    void OnTriggerEnter(Collider other)
+    {
+        if (isFalling)
+        {
+            if (other.tag == "Dusman")
+            {
+                // Düşmanı vurduğunuzu işaretlemek veya zarar vermek için burada kod ekleyebilirsiniz.
+                Debug.Log("Düşman vuruldu!");
+
+                // Düşmanı yok etmek veya zarar vermek için burada kod ekleyebilirsiniz.
+            }
+
+            // Alev topunu yok etmek için kod
+            Destroy(gameObject);
+        }
+    }
 }
 
 
