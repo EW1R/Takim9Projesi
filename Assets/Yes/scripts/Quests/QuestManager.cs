@@ -9,7 +9,7 @@ public class QuestManager : MonoBehaviour
 
     public List<Quest> questList = new List<Quest>();           //Tüm questleri tutan liste
     public List<Quest> currentQuestList = new List<Quest>();    //Alýnmýþ Questlerin listesi
-
+    public List<Quest> receivableQuestsIDs= new List<Quest>();  //Alýnabilir QUest Listesi
 
     private void Awake()
     {
@@ -26,6 +26,7 @@ public class QuestManager : MonoBehaviour
 
     public void QuestRequest(QuestObject NPCQuestObject)
     {
+        //Açýk görev
         if(NPCQuestObject.avaliableQuestIds.Count > 0) 
         { 
             for(int i = 0; i<questList.Count; i++) 
@@ -35,9 +36,15 @@ public class QuestManager : MonoBehaviour
                     if (questList[i].id == NPCQuestObject.avaliableQuestIds[j] && questList[i].progress == Quest.QuestProgress.Open)
                     {
                         Debug.Log("Quest ID: " + NPCQuestObject.avaliableQuestIds[j]+" " + questList[i].progress);
+
+                        AcceptQuest(NPCQuestObject.avaliableQuestIds[j]);
                     }
                 }
             }
+        }
+        for(int i =0; i < NPCQuestObject.recievableQuestIds.Count;j++)
+        {
+
         }
     }
 
