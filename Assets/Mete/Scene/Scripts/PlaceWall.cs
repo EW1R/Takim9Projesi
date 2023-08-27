@@ -24,36 +24,58 @@ public class PlaceWall : MonoBehaviour
         if (placeActive == true)
             objectPlace = iceWall;
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-        
+            PlaceHolder();
+
         }
 
     }
 
     void SendRay()
     {
-        if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out _hit))
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out _hit))
         {
-            place = new Vector3(_hit.point.x,_hit.point.y,_hit.point.z);
+            place = new Vector3(_hit.point.x, _hit.point.y, _hit.point.z);
 
-            if(placeDeactive == false)
+            if (placeDeactive == false)
             {
-                Instantiate(tempIceWall,place,Quaternion.identity);
+                Instantiate(tempIceWall, place, Quaternion.identity);
                 tempObject = GameObject.Find("IceWall");
-                placeDeactive= true;
+                placeDeactive = true;
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(objectPlace,place,Quaternion.identity);
+                Instantiate(objectPlace, place, Quaternion.identity);
                 placeNow = false;
                 placeActive = false;
-                
 
+                Destroy(tempObject);
+                placeDeactive = false;
+
+            }
+
+            if (tempObject != null)
+                tempObject.transform.position = place;
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                placeNow = false;
+                placeActive = false;
+
+                Destroy(tempObject);
+                placeDeactive = false;
 
             }
         }
+    }
+
+    void PlaceHolder()
+    {
+        placeNow = false;
+        placeActive =true;
+
     }
 
 
