@@ -5,7 +5,8 @@ using UnityEngine;
 public class Projectiles : MonoBehaviour
 {
     public Spell1 spell;
-
+    public Ring instigator;
+    //public float projectileLifeTime=6f;
 
     float currentTime = 0;
 
@@ -40,6 +41,20 @@ public class Projectiles : MonoBehaviour
             isDone = false;
         }
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            other.GetComponent<Health>().TakeDamage(instigator.leftClick.damage);
+            isDone = true;
+        }
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Health>().TakeDamage(instigator.leftClick.damage);
+            isDone = true;
+        }
     }
 
 
