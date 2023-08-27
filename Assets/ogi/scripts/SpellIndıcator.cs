@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class SpellIndicator : MonoBehaviour
 {
     public GameObject indicatorPrefab, tempObject; // Gösterge için kullanılacak prefab

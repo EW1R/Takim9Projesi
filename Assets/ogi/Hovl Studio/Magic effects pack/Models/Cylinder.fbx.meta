@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ogi/Hovl Studio/Magic effects pack/Models/Cylinder.fbx.meta
 guid: 4a8c064de5d1b4045a9e9d4ebd5d6575
+========
+guid: c69626680d5e1fb4eafaf417dfd7b0ae
+>>>>>>>> 6c2c076edc18f0ba6050b99686d4894fff1efbb4:Assets/Mete/Scene/Anim/Falling Back Death.fbx.meta
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []

@@ -34,7 +34,6 @@ public class bloktasi : MonoBehaviour
             if (Physics.Raycast(ray, out hit) && hit.collider.gameObject == referenceObject.gameObject)
             {
                 hitPoint = hit.point;
-
                 // Yumuþakça hareket ettirme iþlemi (Lerp)
                 Vector3 targetPosition = hitPoint;
                 Vector3 smoothedPosition = Vector3.Lerp(previewBlock.transform.position, targetPosition, smoothSpeed * Time.deltaTime);
