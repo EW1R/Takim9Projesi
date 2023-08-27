@@ -13,6 +13,17 @@ MonoBehaviour:
   m_Name: Fire Ring
   m_EditorClassIdentifier: 
   leftClick: {fileID: 11400000, guid: d1d4b171edfc7dc4db9d565546bcff60, type: 2}
+  rightClick: {fileID: 11400000, guid: 1833d48f00fc0d544a5e1e172be5f1fc, type: 2}
   ringImage: {fileID: 0}
   ringName: FireRing
   isActive: 1
+  projectileList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

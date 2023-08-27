@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
-    [SerializeField] private Image totalHealthBar;
-    [SerializeField] private Image currentHealthBar;
+//    [SerializeField] private Image totalHealthBar;
+    //[SerializeField] private Image currentHealthBar;
     public float healthAmount;
 
     public GameObject bloodPrefab;
@@ -23,8 +23,8 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
-        currentHealthBar.fillAmount = currentHealth / healthAmount;
-        totalHealthBar.fillAmount = currentHealth / healthAmount;
+        //totalHealthBar.fillAmount = currentHealth / healthAmount;
+        
     }
 
 
