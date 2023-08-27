@@ -23,4 +23,6 @@ public class Quest
     public string questObjective;           //Quest beklentisi
     public int questObjectiveCount;         //quest için tamamlanan adým sayýsý
     public int questObjectiveRequirements; //Questin tamamlanmasý için gereken adým sayýsý
+
+    public string questItem; //questin tamamlanmasý ile alýnacak item
 }

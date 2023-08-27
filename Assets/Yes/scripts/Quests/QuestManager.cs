@@ -24,4 +24,43 @@ public class QuestManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public bool RequestOpenQuest(int questID)//mevcut alýnabilir quest çekme
+    {
+        for (int i = 0; i < questList.Count; i++)
+        {
+            if (questList[i].id == questID && questList[i].progress == Quest.QuestProgress.Open)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool RequestAcceptedQuest(int questID) //Mevcut alýnmýþ quest çekme
+    {
+        for (int i = 0; i < questList.Count; i++)
+        {
+            if (questList[i].id == questID && questList[i].progress == Quest.QuestProgress.Accepted)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void IncrementQuestStep(string questObjective, int questStepsCount)
+    {
+        for(int i = 0; i < currentQuestList.Count; i++) 
+        {
+            if (currentQuestList[i].questObjective == questObjective && currentQuestList[i].progress == Quest.QuestProgress.Accepted)
+            {
+                currentQuestList[i].questObjectiveCount += questStepsCount;
+            }
+
+            if (currentQuestList[i].questObjective >= questObjective && currentQuestList[i].questObjectiveRequirements == Quest.QuestProgress.Accepted)
+            {
+                currentQuestList[i].progress = Quest.QuestProgress.Complete;
+            }
+        }
+    }
 }
