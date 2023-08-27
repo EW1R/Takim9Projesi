@@ -26,7 +26,7 @@ public class QuestManager : MonoBehaviour
 
     public void QuestRequest(QuestObject NPCQuestObject)
     {
-        //Açýk görev
+        //Alýnabilir görev
         if(NPCQuestObject.avaliableQuestIds.Count > 0) 
         { 
             for(int i = 0; i<questList.Count; i++) 
@@ -42,10 +42,21 @@ public class QuestManager : MonoBehaviour
                 }
             }
         }
-        for(int i =0; i < NPCQuestObject.recievableQuestIds.Count;j++)
+        //Aktif görev
+        for(int j =0; j < currentQuestList.Count; j++)
         {
+            for (int i = 0; i < NPCQuestObject.recievableQuestIds.Count; i++)
+            {
+                if (currentQuestList[j].id == NPCQuestObject.recievableQuestIds[i] && currentQuestList[j].progress == Quest.QuestProgress.Accepted || currentQuestList[j].progress == Quest.QuestProgress.Complete) ;
+                {
+                    //quest ui
+                    Debug.Log("Quest ID: " + NPCQuestObject.recievableQuestIds[i] + " is  " + currentQuestList[j].progress);
 
+                    CompleteQuest(NPCQuestObject.recievableQuestIds[i]);
+                }
+            }
         }
+      
     }
 
 
@@ -117,4 +128,12 @@ public class QuestManager : MonoBehaviour
 
     }
 
+    public void CompleteQuest(int questID)
+    {
+        for(int i=0; i< currentQuestList.Count; i++) 
+        {
+            currentQuestList[i].progress-= Quest.QuestProgress.Done;
+            currentQuestList.Remove(currentQuestList[i]);
+        }
+    }
 }
