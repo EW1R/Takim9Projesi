@@ -23,12 +23,6 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
-<<<<<<< HEAD
-        //totalHealthBar.fillAmount = currentHealth / healthAmount;
-        
-=======
-        currentHealthBar.fillAmount = currentHealth / healthAmount;
->>>>>>> cecb71c95419aa12026e32f8d8d10a87923bccae
     }
 
 
