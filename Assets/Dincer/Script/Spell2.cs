@@ -12,6 +12,7 @@ public class Spell2 : ScriptableObject
     public float projectileLifeTime;
     public float yOffset;
     public float raycastRadius;
+    public bool isPlayer;
 
 
 
@@ -22,49 +23,46 @@ public class Spell2 : ScriptableObject
    
     public void ControlIndicator()
     {
-        
+        if (!isPlayer)
+        {
+            return;
+        }
 
         if (isSpawned)
         {
-            Debug.Log("ICERDE");
             Vector3 worldPosition = MousePosWorld();
             Create(worldPosition);
 
         }
-        else
+        
+        if(!isSpawned)
         // Büyü yeteneði kullanýlacaðýnda (örneðin, fare sol týklamada)
         {
-            Debug.Log(isSpawned + "CIEDREDES");
             Debug.DrawRay(temp.transform.position, Vector3.left * (raycastRadius / 2));
             Debug.DrawRay(temp.transform.position, Vector3.right * (raycastRadius / 2));
             Vector3 worldPos = MousePosWorld();
             worldPos.y = temp.GetComponent<FindGround>().GetHitPoint().y;
             temp.transform.position = worldPos;
-            Quaternion rotation = Quaternion.FromToRotation(Vector3.up, temp.GetComponent<FindGround>().GetHitNormal());
-            temp.transform.rotation = rotation;
+            Quaternion rotation = Quaternion.FromToRotation(Vector3.up , temp.GetComponent<FindGround>().GetHitNormal());
+            Debug.Log(rotation.x += 90);
+            temp.transform.rotation =rotation;
+           
             temp.transform.position += temp.GetComponent<FindGround>().GetHitNormal() * yOffset;
         }
 
-        Debug.Log(isSpawned + "AFTER");
 
        
 
     }
 
-    //private void Indicator()
-    //{
-    //    // Ýndikatörü oluþtur
-    //    Vector3 mousePosition = Input.mousePosition;
-    //    mousePosition.z = 10; // Uzaklýðý ayarlayýn
-    //    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-    //    obje = temp;
-    //    obje.transform.position = worldPosition;
-    //}
-
     private GameObject Create(Vector3 worldPos)
     {
-        temp = Instantiate(indicatorPrefab, worldPos, Quaternion.identity);
+        
+        temp = Instantiate(indicatorPrefab, worldPos, Quaternion.Euler(90,90,0));
+        Vector3 scale = temp.transform.localScale;
+        scale.x*=raycastRadius;
+        scale.z *= raycastRadius;
+        temp.transform.localScale += scale;
         isSpawned = false;
         return temp;
     }
@@ -75,6 +73,7 @@ public class Spell2 : ScriptableObject
         castPos = temp.transform;
         Instantiate(tempObject, temp.transform.position, Quaternion.identity);
         isSpawned = true;
+        Destroy(temp);
     }
 
     private static Vector3 MousePosWorld()

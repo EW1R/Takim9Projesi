@@ -10,10 +10,12 @@ public class SpellController : MonoBehaviour
     private Ring currentRing;
 
     List<GameObject> projectilePool = new List<GameObject>();
-
+    
     private float lastTimeSinceAttack = Mathf.Infinity;
     [SerializeField]
     private Animator anim;
+    private bool isAttacking1;
+    private bool isAttacking2;
 
 
 
@@ -37,24 +39,28 @@ public class SpellController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            UseSpell1();
+            isAttacking1 = true;
         }
+        
 
         if (Input.GetMouseButton(1))
         {
             print("Mouse");
-            currentRing.rightClick.ControlIndicator();
+            isAttacking2 = true;
+            currentRing.rightClick.ControlIndicator();  
+            
             print("MouseGecti");
 
         }
         if (Input.GetMouseButtonUp(1))
         {
+            isAttacking2 = false;
             currentRing.rightClick.EndIndicate();
             currentRing.rightClick.Activate();
         }
 
-        
 
+        SetBools();
         CheckTimers();
     }
 
@@ -65,23 +71,47 @@ public class SpellController : MonoBehaviour
 
     private void UseSpell1()
     {
-        if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
+        if (isAttacking1)
         {
-            GameObject projectile = ProjectilePool(currentRing.projectileList);
-            lastTimeSinceAttack = 0;
 
-            projectile.transform.position = handPos.position;
-            projectile.transform.localRotation = Quaternion.Euler(90,0,0);
-            projectile.SetActive(true);
+            if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
+            {
 
-            projectile.GetComponent<Rigidbody>().velocity =Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
+                GameObject projectile = ProjectilePool(currentRing.projectileList);
+                lastTimeSinceAttack = 0;
 
-//            anim.SetTrigger("isAttacking");//anim
+                projectile.transform.position = handPos.position;
+                projectile.transform.localRotation = Quaternion.Euler(62, 30, 0);
+                projectile.SetActive(true);
 
+                projectile.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
+
+                //            anim.SetTrigger("isAttacking");//anim
+
+            }
+            isAttacking1 = false;
         }
 
 
     }
+
+
+    private void SetBools()
+    {
+        anim.SetBool("isAttacking1", isAttacking1);
+        anim.SetBool("isAttacking2", isAttacking2);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     private GameObject ProjectilePool(List<GameObject> list)
     {

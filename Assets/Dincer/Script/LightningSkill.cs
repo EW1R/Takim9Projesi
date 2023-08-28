@@ -11,9 +11,10 @@ public class LightningSkill : Spell2
     {
         base.Activate();
 
-        
+      
 
-        var collisions= Physics.OverlapSphere(castPos.position, raycastRadius);
+        var collisions = Physics.OverlapSphere(castPos.position, raycastRadius);
+
 
         foreach (var item in collisions)
         {

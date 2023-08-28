@@ -40,6 +40,7 @@ public class EnemySpellController : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         navMesh = GetComponent<NavMeshAgent>();
+        
         //anim = GetComponent<Animator>();
     }
 
@@ -52,7 +53,7 @@ public class EnemySpellController : MonoBehaviour
         }
 
 
-
+        SetAnimBools();
         CheckSurroundings();
 
         CheckTimers();
@@ -73,7 +74,7 @@ public class EnemySpellController : MonoBehaviour
             {
                 if (attackcountforspecial > 0)
                 {
-                    isAttacking = true;
+                   
                     AttackPlayer();
                     
                 }
@@ -88,10 +89,16 @@ public class EnemySpellController : MonoBehaviour
             isChasing = false;
         }
     }
+
+    private void SetAnimBools()
+    {
+        anim.SetBool("isAttacking", isAttacking);
+        anim.SetBool("isChasing", isChasing);
+    }
     private void UseSpecial()
     {
-        currentRing.rightClick.Activate();
-        attackcountforspecial = 3;
+        //currentRing.rightClick.Activate();
+        //attackcountforspecial = 3;
     }
     private float DistanceToPlayer()
     {
@@ -106,7 +113,7 @@ public class EnemySpellController : MonoBehaviour
     private void AttackPlayer()
     {
         navMesh.SetDestination(transform.position);
-        UseSpell1();
+        isAttacking = true;
         
     }
 
@@ -116,7 +123,7 @@ public class EnemySpellController : MonoBehaviour
         lastTimeSinceAttack += Time.deltaTime;
     }
 
-    private void UseSpell1()
+    public void UseSpell1()
     {
 
         if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: 
   spellName: Fireball
-  projectileSpeed: 5
+  projectileSpeed: 12
   vfx: {fileID: 0}
   damage: 10
   animation: {fileID: 0}
   projectile: {fileID: 2462168058496595, guid: 6e4bc03a7cfeb8846913d40ef5a7c5ca, type: 3}
   timeBetweenAttacks: 1
-  projectileLifeTime: 2
+  projectileLifeTime: 8
