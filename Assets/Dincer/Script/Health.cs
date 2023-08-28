@@ -14,26 +14,42 @@ public class Health : MonoBehaviour
     public bool isPlayer = false;
     private bool isDead = false;
     private float currentHealth;
+    private Animator anim;
 
     public Canvas canva;
 
     void Start()
     {
-        currentHealth = healthAmount;  
+        currentHealth = healthAmount;
+        if (!isPlayer)
+        {
+            anim = GetComponent<Animator>();
+
+        }
     }
     void Update()
     {
+        if (!isPlayer)
+        {
+            anim.SetBool("isDead", isDead);
 
+        }
     }
 
 
     public void TakeDamage(float attackDamage)
     {
+        if (!isPlayer)
+        {
+            anim.SetTrigger("Hurt");
+
+        }
         float temp = Mathf.Max(currentHealth - attackDamage, 0);
         currentHealth = temp;
-
+        
         if (currentHealth == 0 && !isDead)
         {
+
             Die();
         }
     }

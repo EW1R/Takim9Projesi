@@ -12,7 +12,7 @@ public class FindGround : MonoBehaviour
     void Update()
     {
         // Create a ray from the camera to the mouse cursor position.
-         ray = new Ray((transform.position + Vector3.up*10), -transform.up); ;
+         ray = new Ray((transform.position + Vector3.up * rayDistance), transform.up); ;
 
 
         RaycastHit hit;
