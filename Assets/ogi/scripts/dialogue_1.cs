@@ -14,7 +14,7 @@ public class dialogue_1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textComponent.text = string.Empty; 
+        textComponent.text = string.Empty;
         StartDialogue();
     }
 
@@ -56,7 +56,7 @@ public class dialogue_1 : MonoBehaviour
         {
             index++;
             textComponent.text = string.Empty;
-            StartCoroutine (TypeLine());
+            StartCoroutine(TypeLine());
         }
         else
         {
