@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class Rings : MonoBehaviour
 {
-    public Ring fireRing;   
+    public Ring fireRing;
+    public ParticleSystem fire;
+
     public Ring boltRing;
+    public ParticleSystem bolt;
+
     public Ring iceRing;
+    //public ParticleSystem ice;
+
     private Ring currentRing;
 
-    int activateKey;
+    bool isOne=true;
+    bool isTwo=false;
+    bool isThree=false;
+
+    
+    public Animator leftAnimator;
 
     void Update()
     {
+
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -20,6 +32,11 @@ public class Rings : MonoBehaviour
             {
                 currentRing = fireRing;
 
+
+                isOne = true;
+                isTwo = false;
+                isThree = false;
+                
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -27,6 +44,10 @@ public class Rings : MonoBehaviour
             if (boltRing.isActive)
             {
                 currentRing = boltRing;
+
+                isOne = false;
+                isTwo = true;
+                isThree = false;
 
             }
         }
@@ -36,9 +57,16 @@ public class Rings : MonoBehaviour
             {
                 currentRing = iceRing;
 
+
+                isOne = false;
+                isTwo = false;
+                isThree = true;
+
             }
         }
 
+        SetParticle();
+        SetBools();
         if (currentRing!=null)
         {
             print(currentRing.name);
@@ -47,6 +75,33 @@ public class Rings : MonoBehaviour
 
     }
 
+    private void SetParticle()
+    {
+        if (isOne)
+        {
+            fire.gameObject.SetActive(true);
+        }
+        else
+        {
+            fire.gameObject.SetActive(false);
+
+        }
+
+        if (isTwo)
+        {
+            bolt.gameObject.SetActive(true);
+
+        }
+        else
+            bolt.gameObject.SetActive(false);
+
+    }
+    private void SetBools()
+    {
+        leftAnimator.SetBool("isOne", isOne);
+        leftAnimator.SetBool("isTwo", isTwo);
+        leftAnimator.SetBool("isThree", isThree);
+    }
     public Ring GetCurrentRing()
     {
         return currentRing;
