@@ -11,7 +11,6 @@ public class Projectiles : MonoBehaviour
     float currentTime = 0;
 
     bool isDone = false;
-    bool isHit = false;
     
     private void Start()
     {
@@ -52,6 +51,7 @@ public class Projectiles : MonoBehaviour
             isDone = true;
             gameObject.SetActive(false);
         }
+
         if (other.CompareTag("Player"))
         {
             other.GetComponent<Health>().TakeDamage(instigator.leftClick.damage);

@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class SkeletonController : MonoBehaviour
 {
     public float walkSpeed = 5f;
-    public float attackDamage = 5f;
     public float chaseDistance = 5f;
     public float attackDistance = 2f;
     private NavMeshAgent agent;
