@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemySpellController : MonoBehaviour
 {
 
+    public int attackcountforspecial = 3;
     public Transform handPos;
     public Ring currentRing;
 
@@ -70,8 +71,16 @@ public class EnemySpellController : MonoBehaviour
             }
             else
             {
-                isAttacking = true;
-                AttackPlayer();
+                if (attackcountforspecial > 0)
+                {
+                    isAttacking = true;
+                    AttackPlayer();
+                    
+                }
+                else UseSpecial();
+                
+                
+
             }
         }
         else
@@ -79,7 +88,11 @@ public class EnemySpellController : MonoBehaviour
             isChasing = false;
         }
     }
-
+    private void UseSpecial()
+    {
+        currentRing.rightClick.Activate();
+        attackcountforspecial = 3;
+    }
     private float DistanceToPlayer()
     {
         return Vector3.Distance(transform.position, player.position);
@@ -92,8 +105,9 @@ public class EnemySpellController : MonoBehaviour
 
     private void AttackPlayer()
     {
-        transform.LookAt(player);
+        navMesh.SetDestination(transform.position);
         UseSpell1();
+        
     }
 
 
@@ -104,17 +118,20 @@ public class EnemySpellController : MonoBehaviour
 
     private void UseSpell1()
     {
+
         if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
         {
+            transform.LookAt(player);
             GameObject projectile = ProjectilePool(currentRing.projectileList);
             lastTimeSinceAttack = 0;
 
             projectile.transform.position = handPos.position;
-            projectile.transform.localRotation = Quaternion.Euler(90, 0, 0);
+            projectile.transform.localRotation = Quaternion.Euler(0, 0, 0);
             projectile.SetActive(true);
 
             projectile.GetComponent<Rigidbody>().velocity =transform.forward * currentRing.leftClick.projectileSpeed;
 
+            attackcountforspecial--;
             //anim.SetTrigger("isAttacking");//anim
 
         }
