@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class indicator5 : MonoBehaviour
+public class indicator_left_click : MonoBehaviour
 {
     [Header("Ability 2")]
     public Image abilityImage2;
