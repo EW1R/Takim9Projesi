@@ -21,7 +21,10 @@ public class Rings : MonoBehaviour
 
     
     public Animator leftAnimator;
-
+    private void Start()
+    {
+        currentRing = fireRing;
+    }
     void Update()
     {
 
