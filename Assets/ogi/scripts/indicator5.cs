@@ -37,8 +37,8 @@ public class indicator5 : MonoBehaviour
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        ControlInput();
         AbilityCooldown(ref currentAbility2Cooldown, ability2Cooldown, ref isAbility2Cooldown, abilityImage2, abilityText2);
+        ControlInput();
     }
 
     private void Ability2Input()
