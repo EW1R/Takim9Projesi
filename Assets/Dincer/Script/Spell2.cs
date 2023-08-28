@@ -11,13 +11,14 @@ public class Spell2 : ScriptableObject
     public float cooldown;
     public float projectileLifeTime;
     public float yOffset;
+    public float raycastRadius;
 
-  
+
 
     public GameObject indicatorPrefab, tempObject; // Gösterge için kullanýlacak prefab
     private GameObject temp;
     public bool isSpawned= true;
-    
+    protected Transform castPos;
    
     public void ControlIndicator()
     {
@@ -34,6 +35,8 @@ public class Spell2 : ScriptableObject
         // Büyü yeteneði kullanýlacaðýnda (örneðin, fare sol týklamada)
         {
             Debug.Log(isSpawned + "CIEDREDES");
+            Debug.DrawRay(temp.transform.position, Vector3.left * (raycastRadius / 2));
+            Debug.DrawRay(temp.transform.position, Vector3.right * (raycastRadius / 2));
             Vector3 worldPos = MousePosWorld();
             worldPos.y = temp.GetComponent<FindGround>().GetHitPoint().y;
             temp.transform.position = worldPos;
@@ -68,7 +71,8 @@ public class Spell2 : ScriptableObject
 
     public void EndIndicate()
     {
-  
+        
+        castPos = temp.transform;
         Instantiate(tempObject, temp.transform.position, Quaternion.identity);
         isSpawned = true;
     }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   vfx: {fileID: 0}
-  damage: 0
+  damage: 10
   cooldown: 0
   projectileLifeTime: 0
   yOffset: 0.1
+  raycastRadius: 6
   indicatorPrefab: {fileID: 3340719028150026213, guid: c324db940bb60084fad2cfcfca52c2bb,
     type: 3}
   tempObject: {fileID: 8627697392508195586, guid: b738d0407938f944299ebdf4babcb97e,

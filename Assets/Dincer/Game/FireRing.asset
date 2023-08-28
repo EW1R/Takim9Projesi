@@ -9,21 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 944718b30d6119e4687b2220af3ad7db, type: 3}
-  m_Name: Fire Ring
+  m_Script: {fileID: 11500000, guid: d1a6bc2f290527d42a2a74f71718c3a0, type: 3}
+  m_Name: FireRing
   m_EditorClassIdentifier: 
   leftClick: {fileID: 11400000, guid: d1d4b171edfc7dc4db9d565546bcff60, type: 2}
   rightClick: {fileID: 11400000, guid: 1833d48f00fc0d544a5e1e172be5f1fc, type: 2}
   ringImage: {fileID: 0}
-  ringName: FireRing
+  ringName: 
   isActive: 1
   projectileList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

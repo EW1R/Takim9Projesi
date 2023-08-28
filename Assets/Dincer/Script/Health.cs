@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        currentHealth = healthAmount;
+        currentHealth = healthAmount;  
     }
     void Update()
     {
