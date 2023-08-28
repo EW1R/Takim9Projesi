@@ -5,10 +5,7 @@ using UnityEngine;
 public class HealthM : MonoBehaviour
 {
    public float healthAmount;
-
     public GameObject bloodPrefab;
-
-
     public bool isPlayer = false;
     private bool isDead = false;
     public float currentHealth;
