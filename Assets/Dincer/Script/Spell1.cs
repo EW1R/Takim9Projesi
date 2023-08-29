@@ -8,6 +8,7 @@ using UnityEngine;
 public class Spell1 : ScriptableObject
 {
     public string spellName;
+    public Sprite abilityImage;
     public float projectileSpeed;
     public ParticleSystem vfx;
     public float damage;

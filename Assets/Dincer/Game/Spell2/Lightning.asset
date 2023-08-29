@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   vfx: {fileID: 19828376, guid: 16f393fea92971c4f9d155ff0adab5a5, type: 3}
+  image: {fileID: 21300000, guid: d8f54657e0cc82f4ebaa04d22ac5c488, type: 3}
   damage: 10
-  cooldown: 1
+  cooldown: 2
   projectileLifeTime: 0
   yOffset: 0.2
   raycastRadius: 3

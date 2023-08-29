@@ -45,7 +45,7 @@ public class Meteor : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             isHitGround = true;
-            Instantiate(hitEffect, transform.position+Vector3.up*1f, Quaternion.identity);
+            Instantiate(hitEffect, transform.position+Vector3.up*.5f, Quaternion.identity);
 
         }
     }

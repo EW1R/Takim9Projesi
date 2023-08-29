@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class indicator_left_click : MonoBehaviour
 {
     [Header("Ability 2")]
-    public Image abilityImage2;
+    public Image abilityImage;
     public Text abilityText2;
     public KeyCode ability2Key;
     public float ability2Cooldown = 7;
@@ -37,27 +37,11 @@ public class indicator_left_click : MonoBehaviour
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        AbilityCooldown(ref currentAbility2Cooldown, ability2Cooldown, ref isAbility2Cooldown, abilityImage2, abilityText2);
+        AbilityCooldown(ref currentAbility2Cooldown, ability2Cooldown, ref isAbility2Cooldown, abilityImage, abilityText2);
         ControlInput();
     }
 
-    private void Ability2Input()
-    {
-        if (Input.GetKeyDown(ability2Key) && !isAbility2Cooldown)
-        {
-            isAbility2Cooldown = true;
-            currentAbility2Cooldown = ability2Cooldown;
-            ability2Canvas.enabled = true;
-            ability2RangeIndicator.enabled = true;
-        }
-        if (ability2Canvas.enabled && Input.GetMouseButtonDown(1))
-        {
-            isAbility2Cooldown = true;
-            currentAbility2Cooldown = ability2Cooldown;
-            ability2Canvas.enabled = false;
-            ability2RangeIndicator.enabled = false;
-        }
-    }
+   
 
     private void AbilityCooldown(ref float currentCooldown, float maxCooldown, ref bool isCooldown, Image skillImage, Text skillText)
     {

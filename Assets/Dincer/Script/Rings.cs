@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Rings : MonoBehaviour
 {
+
+    public Image ringImage;
     public Ring fireRing;
     public ParticleSystem fire;
 
@@ -21,9 +24,21 @@ public class Rings : MonoBehaviour
 
     
     public Animator leftAnimator;
+
+
+
+
+
+
+    //-------------
+
+    // maxAbility2Distance tanýmlandý
+
+   
     private void Start()
     {
         currentRing = fireRing;
+
     }
     void Update()
     {
@@ -68,6 +83,7 @@ public class Rings : MonoBehaviour
             }
         }
 
+        ringImage.sprite = currentRing.ringImage;
         SetParticle();
         SetBools();
         if (currentRing!=null)
@@ -75,6 +91,8 @@ public class Rings : MonoBehaviour
             print(currentRing.name);
 
         }
+
+       
 
     }
 
@@ -105,6 +123,8 @@ public class Rings : MonoBehaviour
         leftAnimator.SetBool("isTwo", isTwo);
         leftAnimator.SetBool("isThree", isThree);
     }
+
+  
     public Ring GetCurrentRing()
     {
         return currentRing;

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Spell2 : ScriptableObject
 {
     
     public ParticleSystem vfx;
+    public Sprite image;
     public float damage;
     public float cooldown;
     public float projectileLifeTime;

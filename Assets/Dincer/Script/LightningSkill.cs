@@ -34,7 +34,7 @@ public class LightningSkill : Spell2
     {
         base.EndIndicate();
         Instantiate(vfx, castPos.transform.position + Vector3.up * vfxOffset, Quaternion.Euler(-90, 0, 0));
-        Instantiate(zaap, castPos.transform.position + Vector3.up * 1.5f, Quaternion.identity);
+        Instantiate(zaap, castPos.transform.position + Vector3.up * 1f, Quaternion.identity);
 
 
     }

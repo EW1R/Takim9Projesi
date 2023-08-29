@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftClick: {fileID: 11400000, guid: 1a44b7efad510604caaf00c138a627e6, type: 2}
   rightClick: {fileID: 11400000, guid: f315f731c1f7843469fc75f36deee24b, type: 2}
-  ringImage: {fileID: 0}
+  ringImage: {fileID: 21300000, guid: 032e8d79bfdde88468615ec61f5332c2, type: 3}
   ringName: 
   isActive: 1
-  projectileList: []
+  projectileList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
