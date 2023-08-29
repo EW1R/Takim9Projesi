@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class LightningSkill : Spell2
 {
 
+    public GameObject zaap;
     public override void Activate()
     {
         base.Activate();
@@ -28,6 +29,15 @@ public class LightningSkill : Spell2
         }
 
     }
-    
+
+    public override void EndIndicate()
+    {
+        base.EndIndicate();
+        Instantiate(vfx, castPos.transform.position + Vector3.up * vfxOffset, Quaternion.Euler(-90, 0, 0));
+        Instantiate(zaap, castPos.transform.position + Vector3.up * 1.5f, Quaternion.identity);
+
+
+    }
+
 
 }

@@ -17,7 +17,6 @@ MonoBehaviour:
   vfx: {fileID: 0}
   damage: 20
   animation: {fileID: 0}
-  projectile: {fileID: 7144528386838934842, guid: 4823604774bb58e40ad0c730a3fb0fc8,
-    type: 3}
+  projectile: {fileID: 2462168058496595, guid: ac68775b63c0621468d8faffb671332b, type: 3}
   timeBetweenAttacks: 1.5
   projectileLifeTime: 8

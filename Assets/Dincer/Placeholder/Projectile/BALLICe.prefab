@@ -9668,7 +9668,7 @@ GameObject:
   - component: {fileID: 7171456851804874531}
   - component: {fileID: 7653510788423505784}
   - component: {fileID: 5042722851488996957}
-  - component: {fileID: 9035603020581212276}
+  - component: {fileID: -8233514171849746858}
   m_Layer: 0
   m_Name: BALLICe
   m_TagString: Untagged
@@ -9686,7 +9686,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.116, y: 1.93, z: 0.754}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8389242966896532508}
@@ -9785,12 +9785,12 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9035603020581212276
+--- !u!114 &-8233514171849746858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9799,11 +9799,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7144528386838934842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d1cf4e8b058c9428a0014e7d5a006a, type: 3}
+  m_Script: {fileID: 11500000, guid: fce4546f88867484b92aae28f2185355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: 1a44b7efad510604caaf00c138a627e6, type: 2}
-  instigator: {fileID: 11400000, guid: 513e213bac8b8a54fae6ca5da8417b95, type: 2}
+  instigator: {fileID: 11400000, guid: f315f731c1f7843469fc75f36deee24b, type: 2}
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
+  hitEffect: {fileID: 1046733363732004, guid: d7a1380441a57044eba390476d4eff72, type: 3}
 --- !u!1 &7694128372065974338
 GameObject:
   m_ObjectHideFlags: 0

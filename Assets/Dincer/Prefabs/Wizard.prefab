@@ -960,7 +960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7340968177829018723
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackcountforspecial: 3
   handPos: {fileID: 313006738460638649}
-  currentRing: {fileID: 11400000, guid: 96f7fa659a98cd746bff2e8a50c47d18, type: 2}
+  currentRing: {fileID: 11400000, guid: 25c2f398b6ab0b94095602e10b05cf53, type: 2}
   chaseDistance: 12
   attackRange: 9
   moveSpeed: 4
