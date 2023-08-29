@@ -12,6 +12,7 @@ public class SpellController : MonoBehaviour
     List<GameObject> projectilePool = new List<GameObject>();
     
     private float lastTimeSinceAttack = Mathf.Infinity;
+    private float lastTimeSinceAbility = Mathf.Infinity;
     [SerializeField]
     private Animator anim;
     private bool isAttacking1;
@@ -39,62 +40,65 @@ public class SpellController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            isAttacking1 = true;
-        }
-        
-
-        if (Input.GetMouseButton(1))
-        {
-            print("Mouse");
-            isAttacking2 = true;
-            currentRing.rightClick.ControlIndicator();  
+            if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
+            {
+                lastTimeSinceAttack = 0;
+                isAttacking1 = true;
+            }
             
-            print("MouseGecti");
 
+            
         }
-        if (Input.GetMouseButtonUp(1))
+
+        if (lastTimeSinceAbility >= currentRing.rightClick.cooldown)
         {
-            isAttacking2 = false;
-            currentRing.rightClick.EndIndicate();
-            currentRing.rightClick.Activate();
+            if (Input.GetMouseButton(1))
+            {
+               
+                    currentRing.rightClick.ControlIndicator();
+
+                
+            }
+
+        
+            if (Input.GetMouseButtonUp(1))
+            {
+
+
+                isAttacking2 = true;
+                lastTimeSinceAbility = 0;
+                currentRing.rightClick.EndIndicate();
+                currentRing.rightClick.Activate();
+
+            }
         }
 
+
+        Debug.Log(lastTimeSinceAbility + "ATTTTT");
 
         SetBools();
         CheckTimers();
     }
 
+ 
     private void CheckTimers()
     {
         lastTimeSinceAttack += Time.deltaTime;
+        lastTimeSinceAbility+=Time.deltaTime;
     }
 
     private void UseSpell1()
     {
-        if (isAttacking1)
-        {
-
-            if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
-            {
-
-                GameObject projectile = ProjectilePool(currentRing.projectileList);
-                lastTimeSinceAttack = 0;
-
-                projectile.transform.position = handPos.position;
-                projectile.transform.localRotation = Quaternion.Euler(62, 30, 0);
-                projectile.SetActive(true);
-
-                projectile.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
-
+        GameObject projectile = ProjectilePool(currentRing.projectileList);
+        projectile.transform.position = handPos.position;
+        projectile.transform.localRotation = Quaternion.Euler(62, 30, 0);
+        projectile.SetActive(true);
+        projectile.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * currentRing.leftClick.projectileSpeed;
+        isAttacking1 = false;
+    
                 //            anim.SetTrigger("isAttacking");//anim
 
-            }
-            isAttacking1 = false;
-        }
-
-
     }
-
 
     private void SetBools()
     {
@@ -102,17 +106,10 @@ public class SpellController : MonoBehaviour
         anim.SetBool("isAttacking2", isAttacking2);
     }
 
-
-
-
-
-
-
-
-
-
-
-
+    public void EndAttack2()
+    {
+        isAttacking2 = false;
+    }
     private GameObject ProjectilePool(List<GameObject> list)
     {
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
@@ -61,6 +62,7 @@ public class Health : MonoBehaviour
             //Instantiate(bloodPrefab,transform.position+Vector3.up*5f, Quaternion.Euler(-90f, 0, 0));    
 
             isDead = true;
+            GetComponent<NavMeshAgent>().enabled = false;
             Destroy(gameObject);
         }
 
