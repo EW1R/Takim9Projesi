@@ -18,5 +18,5 @@ MonoBehaviour:
   damage: 10
   animation: {fileID: 0}
   projectile: {fileID: 2462168058496595, guid: 6e4bc03a7cfeb8846913d40ef5a7c5ca, type: 3}
-  timeBetweenAttacks: 1
+  timeBetweenAttacks: 1.5
   projectileLifeTime: 8

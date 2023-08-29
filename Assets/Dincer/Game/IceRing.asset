@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IceRing
   m_EditorClassIdentifier: 
   leftClick: {fileID: 11400000, guid: 1a44b7efad510604caaf00c138a627e6, type: 2}
-  rightClick: {fileID: 0}
+  rightClick: {fileID: 11400000, guid: f315f731c1f7843469fc75f36deee24b, type: 2}
   ringImage: {fileID: 0}
   ringName: 
   isActive: 1

@@ -13,6 +13,7 @@ public class Spell2 : ScriptableObject
     public float yOffset;
     public float raycastRadius;
     public bool isPlayer;
+    public float vfxOffset;
 
 
 
@@ -23,10 +24,6 @@ public class Spell2 : ScriptableObject
    
     public void ControlIndicator()
     {
-        if (!isPlayer)
-        {
-            return;
-        }
 
         if (isSpawned)
         {
@@ -44,9 +41,7 @@ public class Spell2 : ScriptableObject
             worldPos.y = temp.GetComponent<FindGround>().GetHitPoint().y;
             temp.transform.position = worldPos;
             Quaternion rotation = Quaternion.FromToRotation(Vector3.up , temp.GetComponent<FindGround>().GetHitNormal());
-            Debug.Log(rotation.x += 90);
             temp.transform.rotation =rotation;
-           
             temp.transform.position += temp.GetComponent<FindGround>().GetHitNormal() * yOffset;
         }
 
@@ -59,19 +54,19 @@ public class Spell2 : ScriptableObject
     {
         
         temp = Instantiate(indicatorPrefab, worldPos, Quaternion.Euler(90,90,0));
-        Vector3 scale = temp.transform.localScale;
-        scale.x*=raycastRadius;
-        scale.z *= raycastRadius;
-        temp.transform.localScale += scale;
+        //Vector3 scale = temp.transform.localScale;
+        //scale.x*=raycastRadius;
+        //scale.z *= raycastRadius;
+        //temp.transform.localScale += scale;
+        temp.transform.localScale = new Vector3(raycastRadius, 0, raycastRadius);
         isSpawned = false;
         return temp;
     }
 
-    public void EndIndicate()
+    public virtual void EndIndicate()
     {
         
         castPos = temp.transform;
-        Instantiate(tempObject, temp.transform.position, Quaternion.identity);
         isSpawned = true;
         Destroy(temp);
     }

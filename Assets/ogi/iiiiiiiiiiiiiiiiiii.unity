@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cb0036ce2b4dc514ba75fb250d85925d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b013e0cc6df40d84ebda5b63e3ad7a5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -975,7 +975,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 151857632, guid: 722edb8b8963dd047a0cdfdeb6c09902,
+      objectReference: {fileID: -1074847396, guid: d3e5bf4325c97e74191612727e1f8c4f,
         type: 3}
     - target: {fileID: 928820416002234838, guid: b0ae37aedd005864db3593880a63d0c6,
         type: 3}
@@ -1244,7 +1244,7 @@ PrefabInstance:
         type: 3}
       propertyPath: currentHealt
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1935137084}
     - target: {fileID: 5719790532239446413, guid: b0ae37aedd005864db3593880a63d0c6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1348,7 +1348,7 @@ PrefabInstance:
     - target: {fileID: 6026756518430531837, guid: b0ae37aedd005864db3593880a63d0c6,
         type: 3}
       propertyPath: m_Spacing.x
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6026756518430531837, guid: b0ae37aedd005864db3593880a63d0c6,
         type: 3}
@@ -2283,11 +2283,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 151963026, guid: 722edb8b8963dd047a0cdfdeb6c09902, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: -928852037, guid: d3e5bf4325c97e74191612727e1f8c4f, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

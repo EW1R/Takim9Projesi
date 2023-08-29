@@ -26,7 +26,6 @@ public class FindGround : MonoBehaviour
             normal = hit.normal;
 
             // Do something with the hit position.
-            Debug.Log("Hit position: " + hitPosition);
         }
 
         
