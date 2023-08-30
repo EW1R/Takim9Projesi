@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Ice
   m_EditorClassIdentifier: 
   spellName: 
+  abilityImage: {fileID: 21300000, guid: d41b286a66b449742b7d144dcfb1c668, type: 3}
   projectileSpeed: 8
   vfx: {fileID: 0}
   damage: 20
   animation: {fileID: 0}
   projectile: {fileID: 2462168058496595, guid: ac68775b63c0621468d8faffb671332b, type: 3}
-  timeBetweenAttacks: 1.5
+  timeBetweenAttacks: 1.25
   projectileLifeTime: 8

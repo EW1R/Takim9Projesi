@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
 
     public GameObject bloodPrefab;
 
-
+    public Slider healthBar;
     public bool isPlayer = false;
     private bool isDead = false;
     private float currentHealth;
@@ -21,7 +21,15 @@ public class Health : MonoBehaviour
 
     void Start()
     {
+
         currentHealth = healthAmount;
+
+        if (isPlayer)
+        {
+
+            healthBar.maxValue = healthAmount;
+            healthBar.value = currentHealth;
+        }
         if (!isPlayer)
         {
             anim = GetComponent<Animator>();
@@ -32,19 +40,20 @@ public class Health : MonoBehaviour
     {
         if (!isPlayer)
         {
-            anim.SetBool("isDead", isDead);
+            
 
+        }
+
+        if (isPlayer)
+        {
+            healthBar.value = currentHealth;
         }
     }
 
 
     public void TakeDamage(float attackDamage)
     {
-        if (!isPlayer)
-        {
-            anim.SetTrigger("Hurt");
-
-        }
+        
         float temp = Mathf.Max(currentHealth - attackDamage, 0);
         currentHealth = temp;
         
@@ -53,6 +62,15 @@ public class Health : MonoBehaviour
 
             Die();
         }
+        else
+        {
+            if (!isPlayer)
+            {
+                anim.SetTrigger("Hurt");
+
+            }
+        }
+
     }
 
     private void Die()
@@ -62,18 +80,19 @@ public class Health : MonoBehaviour
             //Instantiate(bloodPrefab,transform.position+Vector3.up*5f, Quaternion.Euler(-90f, 0, 0));    
 
             isDead = true;
+            anim.SetTrigger("Die");
             GetComponent<NavMeshAgent>().enabled = false;
-            Destroy(gameObject);
+            Destroy(gameObject,5f);
         }
 
         if (isPlayer)
         {
 
             //Instantiate(bloodPrefab, transform.position, Quaternion.identity);
-            //canva.gameObject.SetActive(true);
+            canva.gameObject.SetActive(true);
             isDead = true;
             GetComponent<PlayerController>().enabled = false;
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
     void SpawnParticle(GameObject particle, Transform spawnPos)

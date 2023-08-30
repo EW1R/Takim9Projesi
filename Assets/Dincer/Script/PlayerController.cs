@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5.0f;
+    //public float moveSpeed = 5.0f;
     public float sensitivity = 2.0f;
 
     private float rotationX = 0;
@@ -17,12 +17,12 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        // Object Movement
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        //// Object Movement
+        //float horizontalInput = Input.GetAxis("Horizontal");
+        //float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * moveSpeed * Time.deltaTime;
-        transform.Translate(movement);
+        //Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * moveSpeed * Time.deltaTime;
+        //transform.Translate(movement);
 
         // Camera Rotation
         float mouseX = Input.GetAxis("Mouse X");

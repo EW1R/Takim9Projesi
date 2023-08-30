@@ -98,7 +98,24 @@ public class Projectiles : MonoBehaviour
             isDone = true;
             gameObject.SetActive(false);
         }
-        
+
+        if (other.CompareTag("Wall"))
+        {
+            if (isBolt)
+            {
+                Instantiate(enemyeElectricHitParticle, transform.position, Quaternion.identity);
+            }
+            if (isFire)
+            {
+                Instantiate(enemyFireHitParticle, transform.position, Quaternion.identity);
+            }
+            if (isIce)
+            {
+                Instantiate(enemyIceHitParticle, transform.position, Quaternion.identity);
+            }
+            isDone = true;
+            gameObject.SetActive(false);
+        }
     }
 
 

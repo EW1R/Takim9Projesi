@@ -148,7 +148,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spell: {fileID: 11400000, guid: b66810f19a92b604c80f1fe9e762ea72, type: 2}
-  instigator: {fileID: 11400000, guid: 96f7fa659a98cd746bff2e8a50c47d18, type: 2}
+  instigator: {fileID: 11400000, guid: 25c2f398b6ab0b94095602e10b05cf53, type: 2}
+  isBolt: 0
+  isFire: 0
+  isIce: 1
+  groundParticle: {fileID: 0}
+  enemyFireHitParticle: {fileID: 0}
+  enemyIceHitParticle: {fileID: 1269060166065924, guid: 1810168468ffe7b4db7f3c67e0743de4,
+    type: 3}
+  enemyeElectricHitParticle: {fileID: 0}
+  ground: {fileID: 0}
 --- !u!1001 &4219095635862010273
 PrefabInstance:
   m_ObjectHideFlags: 0

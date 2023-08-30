@@ -72,21 +72,19 @@ public class EnemySpellController : MonoBehaviour
             }
             else
             {
-                if (attackcountforspecial > 0)
-                {
-                   
-                    AttackPlayer();
+                
+                AttackPlayer();
                     
-                }
-                else UseSpecial();
-                
-                
-
             }
         }
         else
         {
-            isChasing = false;
+            if (navMesh.remainingDistance<=0.2f)
+            {
+                isChasing = false;
+
+            }
+            
         }
     }
 
@@ -112,7 +110,6 @@ public class EnemySpellController : MonoBehaviour
 
     private void AttackPlayer()
     {
-        navMesh.SetDestination(transform.position);
         isAttacking = true;
         
     }
@@ -128,6 +125,8 @@ public class EnemySpellController : MonoBehaviour
 
         if (lastTimeSinceAttack >= currentRing.leftClick.timeBetweenAttacks)
         {
+            navMesh.SetDestination(transform.position);
+
             transform.LookAt(player);
             GameObject projectile = ProjectilePool(currentRing.projectileList);
             lastTimeSinceAttack = 0;
@@ -140,6 +139,7 @@ public class EnemySpellController : MonoBehaviour
 
             attackcountforspecial--;
             //anim.SetTrigger("isAttacking");//anim
+            isAttacking = false;
 
         }
 
