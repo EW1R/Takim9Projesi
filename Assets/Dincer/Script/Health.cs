@@ -64,7 +64,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            if (!isPlayer)
+            if (!isPlayer && !isDead)
             {
                 anim.SetTrigger("Hurt");
 
@@ -82,6 +82,7 @@ public class Health : MonoBehaviour
             isDead = true;
             anim.SetTrigger("Die");
             GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<Collider>().enabled = false;
             Destroy(gameObject,5f);
         }
 
